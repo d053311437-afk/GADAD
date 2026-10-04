@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             hint="חיפוש שם או מספר"; textDirection=View.TEXT_DIRECTION_RTL
             setSingleLine()
         }
-        top.addView(search,LinearLayout.LayoutParams(0,WRAP_CONTENT,1f))
+        top.addView(search,LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.WRAP_CONTENT,1f))
         top.addView(Button(this).apply { text="⚙"; setOnClickListener{showSettings()} })
         root.addView(top)
 
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         nav.addView(navRow); root.addView(nav)
         val scroll=ScrollView(this)
         list=LinearLayout(this).apply { orientation=LinearLayout.VERTICAL }
-        scroll.addView(list); root.addView(scroll,LinearLayout.LayoutParams(MATCH_PARENT,0,1f))
+        scroll.addView(list); root.addView(scroll,LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0,1f))
         setContentView(root)
 
         search.addTextChangedListener(object:android.text.TextWatcher{
@@ -119,11 +119,11 @@ class MainActivity : AppCompatActivity() {
             })
             val row=LinearLayout(this).apply{orientation=LinearLayout.HORIZONTAL}
             fun b(t:String, action:()->Unit)=Button(this).apply{text=t;isAllCaps=false;setOnClickListener{action()}}
-            row.addView(b("☎"){startActivity(Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+ct.number)))},LinearLayout.LayoutParams(0,WRAP_CONTENT,1f))
-            row.addView(b("פרטים"){showContact(ct)},LinearLayout.LayoutParams(0,WRAP_CONTENT,1f))
-            row.addView(b("פתק"){editNote(ct)},LinearLayout.LayoutParams(0,WRAP_CONTENT,1f))
+            row.addView(b("☎"){startActivity(Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+ct.number)))},LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.WRAP_CONTENT,1f))
+            row.addView(b("פרטים"){showContact(ct)},LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.WRAP_CONTENT,1f))
+            row.addView(b("פתק"){editNote(ct)},LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.WRAP_CONTENT,1f))
             box.addView(row)
-            list.addView(box,LinearLayout.LayoutParams(MATCH_PARENT,WRAP_CONTENT).apply{setMargins(0,7,0,7)})
+            list.addView(box,LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT).apply{setMargins(0,7,0,7)})
         }
     }
     private fun toggleFav(c:ContactItem){
