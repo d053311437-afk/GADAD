@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             setBackgroundColor(Color.rgb(246,248,252))
         }
         root.addView(TextView(this).apply {
-            text="מרכז אנשי קשר +"
+            text="ContactHub 2.0"
             textSize=27f; gravity=Gravity.CENTER
             setTextColor(Color.rgb(20,60,110)); setPadding(0,12,0,12)
         })
@@ -49,13 +49,13 @@ class MainActivity : AppCompatActivity() {
 
         val nav=HorizontalScrollView(this)
         val navRow=LinearLayout(this).apply { orientation=LinearLayout.HORIZONTAL }
-        listOf("הכול","★ מועדפים","תגיות","משימות","גיבוי").forEach { label ->
+        listOf("הכול","★ מועדפים","שיחות","משימות","גיבוי").forEach { label ->
             navRow.addView(Button(this).apply {
                 text=label; isAllCaps=false
                 setOnClickListener {
                     when(label){
                         "★ מועדפים"->render(search.text.toString(),true)
-                        "תגיות"->toast("תגיות נשמרות לכל איש קשר")
+                        "שיחות"->toast("היסטוריית שיחות תתווסף בבנייה הבאה")
                         "משימות"->showAllNotes()
                         "גיבוי"->showBackup()
                         else->render(search.text.toString(),false)
